@@ -1,11 +1,32 @@
 // Snippet A
-int[] arr = new int[3];
-arr[10] = 5;
+try
+{
+    int[] arr = new int[3];
+    arr[10] = 5;
+}
+catch(IndexOutOfRangeException)
+{
+    Console.WriteLine("cannot edit element that doesn't exist");
+}
 
 // Snippet B
-string s = null!;
-Console.WriteLine(s.Length);
+try
+{
+    string s = null!;
+    Console.WriteLine(s.Length);
+}
+catch (NullReferenceException e)
+{
+    Console.WriteLine(e.Message);
+}
 
 // Snippet C
-int x = int.MaxValue;
-checked { x = x + 1; }   // checked enforces overflow detection
+try
+{
+    int x = int.MaxValue;
+    checked { x = x + 1; }   // checked enforces overflow detection
+}
+catch (OverflowException e)
+{
+    Console.WriteLine(e.Message);
+}
